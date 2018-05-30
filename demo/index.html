@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Delineate.js demo</title>
+
+	<style>
+		html, body {
+			font-family: sans-serif;
+			font-size: 1.1em;
+			line-height: 1.33;
+		}
+
+		ul.divided-list {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+		}
+
+			ul.divided-list li {
+				margin-left: 0.5em;
+			}
+
+				ul.divided-list li:before {
+					padding-right: 0.5em;
+					content: '|';
+					color: #ccc;
+				}
+
+				ul.divided-list li:first-child:before {
+					display: none;
+				}
+	</style>
+</head>
+<body>
+	<h1>Delineate.js demo</h1>
+
+	<p>Maybe you've dealt with this problem before. You have a list of inline links with dividers in between. You don't
+		want the first item on each line to have a divider, but you can't control where elements will wrap. CSS doesn't
+		have a <code>:first-in-line</code> pseudoclass, so I created this plugin to help.</p>
+
+	<p>This list does not use delineate:</p>
+	<ul class="divided-list">
+		<li>Lorem ipsum.</li>
+		<li>Aspernatur, quis!</li>
+		<li>Laudantium, sed?</li>
+		<li>Enim, quia!</li>
+		<li>Excepturi, fugit.</li>
+		<li>Nulla, veniam.</li>
+		<li>Consequatur, repellat.</li>
+		<li>Aperiam, labore!</li>
+		<li>Dignissimos, doloribus!</li>
+		<li>Animi, ullam?</li>
+	</ul>
+
+	<p>If you're using ES6, you can import and use delineate.js as a module:</p>
+
+	<pre><code>
+		import {delineate} from './delineate.js';
+
+		document.addEventListener('DOMContentLoaded', function() {
+			delineate('.delineate-me');
+		});
+	</code></pre>
+
+	<p>This list has delineate applied!</p>
+
+	<ul class="divided-list delineate-me">
+		<li>Lorem ipsum.</li>
+		<li>Aspernatur, quis!</li>
+		<li>Laudantium, sed?</li>
+		<li>Enim, quia!</li>
+		<li>Excepturi, fugit.</li>
+		<li>Nulla, veniam.</li>
+		<li>Consequatur, repellat.</li>
+		<li>Aperiam, labore!</li>
+		<li>Dignissimos, doloribus!</li>
+		<li>Animi, ullam?</li>
+	</ul>
+
+	<script src="delineate.js"></script>
+	<script type="module">
+		document.addEventListener('DOMContentLoaded', function() {
+			delineate('.delineate-me');
+		});
+	</script>
+</body>
+</html>
